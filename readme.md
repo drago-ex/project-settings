@@ -16,3 +16,21 @@ Individual settings for the application.
 ```bash
 composer require drago-ex/project-settings
 ```
+
+## Use in the presenter
+```php
+use use App\Core\Settings\SettingsRequire;
+```
+
+## Use in latte template
+```latte
+{varType App\Core\Settings\Settings $settings}
+
+{* website name *}
+{$settings->website}
+
+{* website description *}
+{$settings->description}
+```
+
+We can customize the settings according to our needs.
