@@ -1,0 +1,31 @@
+{
+	"name": "drago-ex/project-settings",
+	"type": "drago-project-resource",
+	"description": "Individual settings for the application.",
+	"license": ["MIT"],
+	"require": {
+		"php": ">=8.3 <9",
+		"nette/application": "^3.0",
+		"nette/di": "^3.0",
+	  	"tracy/tracy": "^2.0",
+		"drago-ex/database": "^2.0"
+	},
+	"extra": {
+		"drago-project": {
+			"install": {
+				"copy": {
+					"resources/app": "app"
+				}
+			},
+			"commands": {
+				"db:migrate-settings": "php vendor/bin/migration db:migrate vendor/drago-ex/project-settings/migrations"
+			}
+		}
+	},
+	"require-dev": {
+		"phpstan/phpstan-nette": "^2.0"
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse"
+	}
+}
