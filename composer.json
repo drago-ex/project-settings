@@ -8,7 +8,7 @@
 		"nette/application": "^3.0",
 		"nette/di": "^3.0",
 		"tracy/tracy": "^2.0",
-		"drago-ex/database": "^2.0"
+		"drago-ex/database": "^3.0"
 	},
 	"extra": {
 		"drago-project": {
