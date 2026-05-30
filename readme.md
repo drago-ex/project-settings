@@ -17,6 +17,10 @@ Individual settings for the application.
 composer require drago-ex/project-settings
 ```
 
+## Project files
+The package has `extra.drago-project.skip` set to `false`, so `drago-install` copies the configured files automatically.
+If `skip` is set to `true`, copy those files manually according to the `copy` section in `composer.json`.
+
 ## Use in the presenter
 ```php
 use use App\Core\Settings\SettingsRequire;
