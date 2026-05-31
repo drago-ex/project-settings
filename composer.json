@@ -12,7 +12,6 @@
 	},
 	"extra": {
 		"drago-project": {
-			"skip": false,
 			"install": {
 				"copy": {
 					"resources/app": "app"
