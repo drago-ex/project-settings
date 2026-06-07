@@ -25,7 +25,7 @@ in this package's `composer.json`. To skip this package, set `"skip": true` unde
 
 ## Use in the presenter
 ```php
-use use App\Core\Settings\SettingsRequire;
+use App\Core\Settings\SettingsRequire;
 ```
 
 ## Use in latte template
