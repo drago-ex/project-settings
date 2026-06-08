@@ -1,0 +1,11 @@
+{templateType App\Core\Settings\Factory\SettingsTemplate}
+{embed '../../Widget/@form.latte', class: 'ajax', name: 'roles', najaHistory: 'off'}
+    {block form}
+        {foreach $inputsSettings as $setting}
+            {include input, name: $setting, columns: 12}
+        {/foreach}
+        <div class="d-block">
+            {include submit, name: 'send'}
+        </div>
+    {/block}
+{/embed}

@@ -8,10 +8,13 @@
 		"nette/application": "^3.0",
 		"nette/di": "^3.0",
 		"tracy/tracy": "^2.0",
-		"drago-ex/database": "^3.0"
+		"drago-ex/database": "^3.0",
+		"drago-ex/application": "^2.0",
+		"drago-ex/form": "^2.0"
 	},
 	"extra": {
 		"drago-tools": {
+		  	"allow-library-install": true,
 			"install": {
 				"copy": {
 					"resources/app": "app"
@@ -23,9 +26,18 @@
 		}
 	},
 	"require-dev": {
-		"phpstan/phpstan-nette": "^2.0"
+		"phpstan/phpstan-nette": "^2.0",
+		"drago-ex/project-tools": "^1.0"
 	},
 	"scripts": {
-		"phpstan": "phpstan analyse"
+		"phpstan": "phpstan analyse",
+		"post-install-cmd": [
+			"drago-install --dev",
+			"drago-clean"
+		],
+		"post-update-cmd": [
+			"drago-install --dev",
+			"drago-clean"
+		]
 	}
 }

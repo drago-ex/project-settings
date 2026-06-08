@@ -36,7 +36,6 @@ trait SettingsRequire
 
 			} catch (\Throwable $e) {
 				Debugger::log($e, ILogger::EXCEPTION);
-				$presenter->template->settings = new Settings(website: '', description: '');
 			}
 		};
 	}
