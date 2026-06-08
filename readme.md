@@ -33,10 +33,41 @@ use App\Core\Settings\SettingsRequire;
 {varType App\Core\Settings\Settings $settings}
 
 {* website name *}
-{$settings->website}
+{$settings->get('website')}
 
 {* website description *}
-{$settings->description}
+{$settings->get('description')}
+
+{if $settings->has('website')}
+	{$settings->get('website')}
+{/if}
 ```
 
 We can customize the settings according to our needs.
+
+## Administration form
+The package also provides a simple settings form component.
+
+```php
+use App\Core\Settings\Factory\SettingsControl;
+use App\Core\Settings\SettingsRepository;
+
+public function __construct(
+	private readonly SettingsRepository $settingsRepository,
+) {
+	parent::__construct();
+}
+
+protected function createComponentSettings(): SettingsControl
+{
+	return new SettingsControl(
+		settingsRepository: $this->settingsRepository,
+	);
+}
+```
+
+Render it in a Latte template:
+
+```latte
+{control settings}
+```

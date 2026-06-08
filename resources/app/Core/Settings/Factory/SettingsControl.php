@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Core\Settings\Factory;
 
-use App\Core\Settings\SettingsEntity;
 use App\Core\Settings\SettingsRepository;
 use Dibi\Exception;
 use Drago\Application\UI\Alert;
@@ -20,6 +19,7 @@ class SettingsControl extends ExtraControl
 		private readonly SettingsRepository $settingsRepository,
 	) {
 	}
+
 
 	public function render(): void
 	{
@@ -53,11 +53,8 @@ class SettingsControl extends ExtraControl
 	 */
 	private function success(Form $form): void
 	{
-		foreach ((array) $form->getValues() as $name => $value) {
-			$this->settingsRepository->save([
-				SettingsEntity::ColumnName => $name,
-				SettingsEntity::ColumnValue => $value,
-			]);
+		foreach ((array) $form->getValues('array') as $name => $value) {
+			$this->settingsRepository->saveSetting($name, (string) $value);
 		}
 
 		$this->flashMessage('Successful save.', Alert::Success);
