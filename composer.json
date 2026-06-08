@@ -14,7 +14,7 @@
 	},
 	"extra": {
 		"drago-tools": {
-		  	"allow-library-install": true,
+			"allow-library-install": true,
 			"install": {
 				"copy": {
 					"resources/app": "app"
