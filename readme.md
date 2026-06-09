@@ -49,21 +49,16 @@ We can customize the settings according to our needs.
 The package also provides a simple settings form component.
 
 ```php
-use App\Core\Settings\Factory\SettingsControl;
-use App\Core\Settings\SettingsRepository;
-
-public function __construct(
-	private readonly SettingsRepository $settingsRepository,
-) {
-	parent::__construct();
-}
-
-protected function createComponentSettings(): SettingsControl
-{
-	return new SettingsControl(
-		settingsRepository: $this->settingsRepository,
-	);
-}
+	/**
+	 * @throws Throwable
+	 * @throws Exception
+	 */
+	protected function createComponentSettings(): SettingsControl
+	{
+		$control = $this->settingsControl;
+		$control->translator = $this->getTranslator();
+		return $control;
+	}
 ```
 
 Render it in a Latte template:

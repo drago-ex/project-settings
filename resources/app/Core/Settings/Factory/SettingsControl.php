@@ -57,6 +57,10 @@ class SettingsControl extends ExtraControl
 			$this->settingsRepository->saveSetting($name, (string) $value);
 		}
 
-		$this->flashMessage('Successful save.', Alert::Success);
+		$this->getPresenter()
+			->flashMessage('Successful save.', Alert::Success);
+
+		$this->getPresenter()
+			->redirect('this');
 	}
 }

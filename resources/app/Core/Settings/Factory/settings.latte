@@ -1,8 +1,8 @@
 {templateType App\Core\Settings\Factory\SettingsTemplate}
-{embed '../../Widget/@form.latte', class: 'ajax', name: 'settings', najaHistory: 'off'}
+{embed '../../Widget/@form.latte', name: 'settings', najaHistory: 'off'}
     {block form}
         {foreach $inputsSettings as $name => $value}
-            {include input, name: $name, columns: 12}
+            {include input, name: $name, columns: 6}
         {/foreach}
         <div class="d-block">
             {include submit, name: 'save'}
