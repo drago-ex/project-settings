@@ -17,12 +17,4 @@ class SettingsEntity extends Entity
 
 	public string $name;
 	public string $value;
-
-
-	public function __construct(string $name, string $value)
-	{
-		parent::__construct();
-		$this->name = $name;
-		$this->value = $value;
-	}
 }
