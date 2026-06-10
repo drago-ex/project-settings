@@ -2,32 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Settings\Factory;
+namespace App\UI\Backend\Settings;
 
-use App\Core\Settings\SettingsRepository;
-use Dibi\Exception;
+use App\UI\Backend\BackendPresenter;
 use Drago\Application\UI\Alert;
-use Drago\Application\UI\ExtraControl;
 use Drago\Attr\AttributeDetectionException;
+use Exception;
 use Nette\Application\UI\Form;
 
 
-/**  @property-read SettingsTemplate $template */
-class SettingsControl extends ExtraControl
+/** @property-read SettingsTemplate $template */
+class SettingsPresenter extends BackendPresenter
 {
 	public function __construct(
 		private readonly SettingsRepository $settingsRepository,
 	) {
+		parent::__construct();
 	}
 
 
-	public function render(): void
+	public function renderDefault(): void
 	{
-		$template = $this->template;
-		$template->setFile(__DIR__ . '/settings.latte');
-		$template->setTranslator($this->translator);
-		$template->inputsSettings = $this->settingsRepository->getSettings();
-		$template->render();
+		$this->template->inputsSettings = $this->settingsRepository
+			->getSettings();
 	}
 
 

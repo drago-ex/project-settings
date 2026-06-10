@@ -10,6 +10,7 @@
 		"tracy/tracy": "^2.0",
 		"drago-ex/database": "^3.0",
 		"drago-ex/application": "^2.0",
+		"drago-ex/project-backend": "^2.0",
 		"drago-ex/form": "^2.0"
 	},
 	"extra": {
@@ -21,7 +22,7 @@
 				}
 			},
 			"commands": {
-				"db:migrate-settings": "php vendor/bin/migration db:migrate vendor/drago-ex/project-settings/migrations"
+				"create:settings-permission": "php vendor/bin/create-permission"
 			}
 		}
 	},
@@ -29,6 +30,9 @@
 		"phpstan/phpstan-nette": "^2.0",
 		"drago-ex/project-tools": "^1.0"
 	},
+	"bin": [
+		"bin/create-permission"
+	],
 	"scripts": {
 		"phpstan": "phpstan analyse",
 		"post-install-cmd": [

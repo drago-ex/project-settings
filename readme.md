@@ -24,8 +24,9 @@ in this package's `composer.json`. To skip this package, set `"skip": true` unde
 `extra.drago-tools.packages.<package-name>` in your root `composer.json`.
 
 ## Use in the presenter
+Use in presenter where you have access protected as an administrator.
 ```php
-use App\Core\Settings\SettingsRequire;
+use App\UI\Backend\Settings\SettingsRequire
 ```
 
 ## Use in latte template
@@ -44,25 +45,3 @@ use App\Core\Settings\SettingsRequire;
 ```
 
 We can customize the settings according to our needs.
-
-## Administration form
-The package also provides a simple settings form component.
-
-```php
-	/**
-	 * @throws Throwable
-	 * @throws Exception
-	 */
-	protected function createComponentSettings(): SettingsControl
-	{
-		$control = $this->settingsControl;
-		$control->translator = $this->getTranslator();
-		return $control;
-	}
-```
-
-Render it in a Latte template:
-
-```latte
-{control settings}
-```
