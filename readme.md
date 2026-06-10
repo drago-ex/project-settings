@@ -31,7 +31,7 @@ use App\UI\Backend\Settings\SettingsRequire
 
 ## Use in latte template
 ```latte
-{varType App\Core\Settings\Settings $settings}
+{varType App\UI\Backend\Settings $settings}
 
 {* website name *}
 {$settings->get('website')}
