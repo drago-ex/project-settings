@@ -14,13 +14,6 @@ use Nette\Application\UI\Form;
 /** @property-read SettingsTemplate $template */
 class SettingsPresenter extends BackendPresenter
 {
-	public function __construct(
-		private readonly SettingsRepository $settingsRepository,
-	) {
-		parent::__construct();
-	}
-
-
 	public function renderDefault(): void
 	{
 		$this->template->inputsSettings = $this->settingsRepository
