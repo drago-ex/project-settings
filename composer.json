@@ -22,7 +22,7 @@
 				}
 			},
 			"commands": {
-				"create:settings-permission": "php vendor/bin/create-permission"
+				"create:settings-permission": "php vendor/bin/create-settings-permission"
 			}
 		}
 	},
@@ -31,7 +31,7 @@
 		"drago-ex/project-tools": "^1.0"
 	},
 	"bin": [
-		"bin/create-permission"
+		"bin/create-settings-permission"
 	],
 	"scripts": {
 		"phpstan": "phpstan analyse",
