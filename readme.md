@@ -45,3 +45,9 @@ use App\UI\Backend\Settings\SettingsRequire
 ```
 
 We can customize the settings according to our needs.
+
+## Generate permission provider
+If you use project ACL (drago-ex/permission), you can generate a module permission class:
+```bash
+php vendor/bin/create-settings-permission
+```
