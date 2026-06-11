@@ -4,7 +4,7 @@
     {embed ../../../Core/Widget/@content.latte}
         {block content}
             <h5 n:block="title" class="border-bottom pb-2">{_'Website settings'}</h5>
-            {embed '../../../Core/Widget/@form.latte', name: 'settings', najaHistory: 'off'}
+            {embed '../../../Core/Widget/@form.latte', name: 'settings'}
                 {block form}
                     {foreach $inputsSettings as $name => $value}
                         {include input, name: $name, columns: 6}
