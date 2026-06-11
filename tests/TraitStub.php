@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\UI\Backend\Settings\SettingsRequire;
+use App\Core\Settings\SettingsRequire;
 
 
 class TraitStub

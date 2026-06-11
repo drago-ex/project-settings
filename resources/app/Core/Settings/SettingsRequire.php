@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Backend\Settings;
+namespace App\Core\Settings;
 
 use Nette\Application\UI\Presenter;
 use Nette\DI\Attributes\Inject;

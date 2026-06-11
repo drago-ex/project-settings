@@ -26,12 +26,12 @@ in this package's `composer.json`. To skip this package, set `"skip": true` unde
 ## Use in the presenter
 Use in presenter where you have access protected as an administrator.
 ```php
-use App\UI\Backend\Settings\SettingsRequire
+use App\Core\Settings\SettingsRequire;
 ```
 
 ## Use in latte template
 ```latte
-{varType App\UI\Backend\Settings $settings}
+{varType App\Core\Settings\Settings $settings}
 
 {* website name *}
 {$settings->get('website')}

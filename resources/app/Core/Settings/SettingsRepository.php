@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Backend\Settings;
+namespace App\Core\Settings;
 
 use Dibi\Connection;
 use Dibi\Exception;
