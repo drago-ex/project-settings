@@ -1,11 +1,18 @@
 {templateType App\UI\Backend\Settings\SettingsTemplate}
-{embed '../../Widget/@form.latte', name: 'settings', najaHistory: 'off'}
-    {block form}
-        {foreach $inputsSettings as $name => $value}
-            {include input, name: $name, columns: 6}
-        {/foreach}
-        <div class="d-block">
-            {include submit, name: 'save'}
-        </div>
-    {/block}
-{/embed}
+{block title}{_'Website settings'}{/block}
+{block content}
+    {embed ../../../Core/Widget/@content.latte}
+        {block content}
+            {embed '../../../Core/Widget/@form.latte', name: 'settings', najaHistory: 'off'}
+                {block form}
+                    {foreach $inputsSettings as $name => $value}
+                        {include input, name: $name, columns: 6}
+                    {/foreach}
+                    <div class="d-block">
+                        {include submit, name: 'save'}
+                    </div>
+                {/block}
+            {/embed}
+        {/block}
+    {/embed}
+{/block}
