@@ -24,6 +24,7 @@ class SettingsPresenter extends BackendPresenter
 	protected function createComponentSettings(): Form
 	{
 		$form = new Form;
+		$form->setTranslator($this->translator);
 		$settings = $this->settingsRepository->getSettings();
 		foreach ($settings as $name => $value) {
 			$form->addText($name, $name)
