@@ -33,6 +33,7 @@ class SettingsRepository
 	{
 		try {
 			return $this->read('*')
+				->where('name != ?', 'installed')
 				->fetchPairs(SettingsEntity::ColumnName, SettingsEntity::ColumnValue);
 
 		} catch (\Throwable $e) {
