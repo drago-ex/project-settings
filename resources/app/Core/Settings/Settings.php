@@ -7,7 +7,6 @@ namespace App\Core\Settings;
 use RuntimeException;
 
 
-/** Application settings accessor. */
 class Settings
 {
 	/** @param array<string, string> $values */

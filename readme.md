@@ -24,12 +24,19 @@ in this package's `composer.json`. To skip this package, set `"skip": true` unde
 `extra.drago-tools.packages.<package-name>` in your root `composer.json`.
 
 ## Use in the presenter
-Use in presenter where you have access protected as an administrator.
+Add the trait to a base presenter whose templates need application settings:
+
 ```php
 use App\Core\Settings\SettingsRequire;
+use Nette\Application\UI\Presenter;
+
+abstract class BasePresenter extends Presenter
+{
+	use SettingsRequire;
+}
 ```
 
-## Use in latte template
+## Use in Latte template
 ```latte
 {varType App\Core\Settings\Settings $settings}
 
@@ -43,8 +50,6 @@ use App\Core\Settings\SettingsRequire;
 	{$settings->get('website')}
 {/if}
 ```
-
-We can customize the settings according to our needs.
 
 ## Generate permission provider
 If you use project ACL (drago-ex/permission), you can generate a module permission class:

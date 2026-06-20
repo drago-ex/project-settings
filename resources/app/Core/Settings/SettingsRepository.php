@@ -12,7 +12,6 @@ use Drago\Database\Database;
 use RuntimeException;
 
 
-/** Repository for settings key-value pairs. */
 #[Table(SettingsEntity::Table)]
 class SettingsRepository
 {

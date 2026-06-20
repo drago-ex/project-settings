@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Backend\Settings;
+namespace App\Presentation\Backend\Settings;
 
-use App\UI\Backend\BackendPresenter;
+use App\Presentation\Backend\BackendPresenter;
 use Drago\Application\UI\Alert;
 use Drago\Attr\AttributeDetectionException;
 use Exception;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Backend\Settings;
+namespace App\Presentation\Backend\Settings;
 
-use App\UI\Backend\BackendTemplate;
+use App\Presentation\Backend\BackendTemplate;
 
 
 class SettingsTemplate extends BackendTemplate

@@ -7,7 +7,6 @@ namespace App\Core\Settings;
 use Drago\Database\Entity;
 
 
-/** Database entity for settings table. */
 class SettingsEntity extends Entity
 {
 	public const string

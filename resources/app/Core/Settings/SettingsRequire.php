@@ -10,14 +10,12 @@ use Tracy\Debugger;
 use Tracy\ILogger;
 
 
-/** Injects settings into presenter template. */
 trait SettingsRequire
 {
 	#[Inject]
 	public SettingsRepository $settingsRepository;
 
 
-	/** Inject settings into template. */
 	public function injectSettings(Presenter $presenter): void
 	{
 		$presenter->onRender[] = function () use ($presenter) {

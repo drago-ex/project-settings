@@ -25,6 +25,9 @@
 			}
 		}
 	},
+	"suggest": {
+		"drago-ex/permission": "Enables generation of the settings permission provider."
+	},
 	"require-dev": {
 		"phpstan/phpstan-nette": "^2.0",
 		"drago-ex/project-tools": "^1.0"

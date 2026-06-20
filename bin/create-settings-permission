@@ -26,20 +26,17 @@ if ($generator === null) {
 	exit(1);
 }
 
-// 1. Positional arguments with clear description.
 $positionalArgs = [
 	'className'   => 'PermissionProvider',
-	'namespace'   => 'App\\UI\\Backend\\Settings',
+	'namespace'   => 'App\\Presentation\\Backend\\Settings',
 	'resource'    => 'Backend:Settings',
-	'outputDir'   => 'app/UI/Backend/Settings',
+	'outputDir'   => 'app/Presentation/Backend/Settings',
 ];
 
-// 2. Optional switches (options).
 $options = [
 	'--allow=RoleAdmin',
 ];
 
-// We will combine them into one flat field for the shell.
 $args = array_merge(array_values($positionalArgs), $options);
 
 $command = 'php ' . escapeshellarg($generator);
