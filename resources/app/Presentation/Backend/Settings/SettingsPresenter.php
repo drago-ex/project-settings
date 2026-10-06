@@ -48,10 +48,7 @@ class SettingsPresenter extends BackendPresenter
 			$this->settingsRepository->saveSetting($name, (string) $value);
 		}
 
-		$this->getPresenter()
-			->flashMessage('Successful save.', Alert::Success);
-
-		$this->getPresenter()
-			->redirect('this');
+		$this->flashMessage('Successful save.', Alert::Success);
+		$this->redirect('this');
 	}
 }
