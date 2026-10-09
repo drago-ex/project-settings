@@ -1,7 +1,7 @@
 {
 	"name": "drago-ex/project-settings",
-	"type": "drago-tools-resource",
 	"description": "Individual settings for the application.",
+	"type": "drago-tools-resource",
 	"license": ["MIT"],
 	"require": {
 		"php": ">=8.3 <9",
@@ -12,6 +12,25 @@
 		"drago-ex/application": "^3.0",
 		"drago-ex/project-backend": "^2.0",
 		"drago-ex/form": "^2.0"
+	},
+	"suggest": {
+		"drago-ex/permission": "Enables generation of the settings permission provider."
+	},
+	"require-dev": {
+		"phpstan/phpstan-nette": "^2.0",
+		"drago-ex/project-tools": "^1.0"
+	},
+	"bin": ["bin/create-settings-permission"],
+	"scripts": {
+		"phpstan": "phpstan analyse",
+		"post-install-cmd": [
+			"drago-install --dev",
+			"drago-clean"
+		],
+		"post-update-cmd": [
+			"drago-install --dev",
+			"drago-clean"
+		]
 	},
 	"extra": {
 		"drago-tools": {
@@ -28,26 +47,5 @@
 		"drago-translator": {
 			"translation": "app/Presentation/Backend/Settings/Translate"
 		}
-	},
-	"suggest": {
-		"drago-ex/permission": "Enables generation of the settings permission provider."
-	},
-	"require-dev": {
-		"phpstan/phpstan-nette": "^2.0",
-		"drago-ex/project-tools": "^1.0"
-	},
-	"bin": [
-		"bin/create-settings-permission"
-	],
-	"scripts": {
-		"phpstan": "phpstan analyse",
-		"post-install-cmd": [
-			"drago-install --dev",
-			"drago-clean"
-		],
-		"post-update-cmd": [
-			"drago-install --dev",
-			"drago-clean"
-		]
 	}
 }
