@@ -7,23 +7,27 @@ Individual settings for the application.
 [![Coding Style](https://github.com/drago-ex/project-settings/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/project-settings/actions/workflows/coding-style.yml)
 
 ## Requirements
+
 - PHP >= 8.3
 - Nette Framework
 - Composer
 - Drago Project core packages
 
 ## Installation
+
 ```bash
 composer require drago-ex/project-settings
 ```
 
 ## Project files
+
 File copying is handled automatically by [drago-ex/project-tools](https://github.com/drago-ex/project-tools),
 which must be installed in your project. Without it, copy the files manually according to the `copy` section
 in this package's `composer.json`. To skip this package, set `"skip": true` under
 `extra.drago-tools.packages.<package-name>` in your root `composer.json`.
 
 ## Use in the presenter
+
 Add the trait to a base presenter whose templates need application settings:
 
 ```php
@@ -37,6 +41,7 @@ abstract class BasePresenter extends Presenter
 ```
 
 ## Use in Latte template
+
 ```latte
 {varType App\Core\Settings\Settings $settings}
 
@@ -52,6 +57,7 @@ abstract class BasePresenter extends Presenter
 ```
 
 ## Generate permission provider
+
 If you use project ACL (drago-ex/permission), you can generate a module permission class:
 ```bash
 php vendor/bin/create-settings-permission
