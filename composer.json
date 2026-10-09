@@ -24,6 +24,9 @@
 				"create:settings-permission": "php vendor/bin/create-settings-permission",
 				"db:migrate-settings": "php vendor/bin/migration db:migrate vendor/drago-ex/project-settings/migrations"
 			}
+		},
+		"drago-translator": {
+			"translation": "app/Presentation/Backend/Settings/Translate"
 		}
 	},
 	"suggest": {
