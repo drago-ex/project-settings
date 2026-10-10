@@ -45,7 +45,7 @@
 			}
 		},
 		"drago-translator": {
-			"translation": "app/Presentation/Backend/Settings/Translate"
+			"translation": "resources/app/Presentation/Backend/Settings/Translate"
 		}
 	}
 }
