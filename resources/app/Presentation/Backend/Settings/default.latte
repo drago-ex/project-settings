@@ -1,7 +1,7 @@
 {templateType App\Presentation\Backend\Settings\SettingsTemplate}
 {block title}{_'Website settings'}{/block}
 {block content}
-	{embed ../../Accessory/Widget/@content.latte}
+	{embed ../Accessory/Widget/@content.latte}
 		{block content}
 			<h5 n:block="title" class="border-bottom pb-2">{_'Website settings'}</h5>
 			{embed '../../Accessory/Widget/@form.latte', name: 'settings'}
