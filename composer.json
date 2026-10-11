@@ -21,17 +21,6 @@
 		"drago-ex/project-tools": "^1.0"
 	},
 	"bin": ["bin/create-settings-permission"],
-	"scripts": {
-		"phpstan": "phpstan analyse",
-		"post-install-cmd": [
-			"drago-install --dev",
-			"drago-clean"
-		],
-		"post-update-cmd": [
-			"drago-install --dev",
-			"drago-clean"
-		]
-	},
 	"extra": {
 		"drago-tools": {
 			"install": {
@@ -47,5 +36,16 @@
 		"drago-translator": {
 			"translation": "app/Presentation/Backend/Settings/Translate"
 		}
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse",
+		"post-install-cmd": [
+			"drago-install --dev",
+			"drago-clean"
+		],
+		"post-update-cmd": [
+			"drago-install --dev",
+			"drago-clean"
+		]
 	}
 }
