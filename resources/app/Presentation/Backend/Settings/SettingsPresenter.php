@@ -33,7 +33,7 @@ class SettingsPresenter extends BackendPresenter
 
 		$form->setDefaults($settings);
 		$form->addSubmit('save', 'Save');
-		$form->onSuccess[] = $this->success(...);
+		$form->onSuccess[] = $this->processSettingsForm(...);
 		return $form;
 	}
 
@@ -42,7 +42,7 @@ class SettingsPresenter extends BackendPresenter
 	 * @throws Exception
 	 * @throws AttributeDetectionException
 	 */
-	private function success(Form $form): void
+	private function processSettingsForm(Form $form): void
 	{
 		foreach ((array) $form->getValues('array') as $name => $value) {
 			$this->settingsRepository->saveSetting($name, (string) $value);
