@@ -4,16 +4,22 @@ declare(strict_types=1);
 
 namespace App\Presentation\Backend\Settings;
 
+use App\Core\Settings\SettingsRepository;
 use App\Presentation\Backend\BackendPresenter;
 use Drago\Application\UI\Alert;
 use Drago\Attr\AttributeDetectionException;
 use Exception;
 use Nette\Application\UI\Form;
+use Nette\DI\Attributes\Inject;
 
 
 /** @property-read SettingsTemplate $template */
 class SettingsPresenter extends BackendPresenter
 {
+	#[Inject]
+	public SettingsRepository $settingsRepository;
+
+
 	public function renderDefault(): void
 	{
 		$this->template->inputsSettings = $this->settingsRepository
