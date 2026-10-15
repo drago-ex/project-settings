@@ -2,7 +2,7 @@
 	"name": "drago-ex/project-settings",
 	"description": "Individual settings for the application.",
 	"type": "drago-tools-resource",
-	"license": ["MIT"],
+	"license": "MIT",
 	"require": {
 		"php": ">=8.3 <9",
 		"nette/application": "^3.0",
@@ -20,7 +20,9 @@
 		"phpstan/phpstan-nette": "^2.0",
 		"drago-ex/project-tools": "^1.0"
 	},
-	"bin": ["bin/create-settings-permission"],
+	"bin": [
+		"bin/create-settings-permission"
+	],
 	"extra": {
 		"drago-tools": {
 			"install": {
