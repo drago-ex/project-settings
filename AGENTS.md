@@ -21,17 +21,18 @@ Use this file as package-specific guidance when working in this repository. Keep
 ## Dependencies
 
 Composer constraints describe the package contract. Before changing integration behavior, inspect the source and the actual call sites in this package; do not infer runtime usage solely from dependency declarations.
-Development dependencies include phpstan/phpstan-nette (^2.0), drago-ex/project-tools (^1.0).
+Development dependencies include nette/tester (^2.5), phpstan/phpstan-nette (^2.0), drago-ex/project-tools (^1.0).
 
 ## Essential Commands
 
 ```bash
 composer phpstan                # phpstan analyse
+composer tester                 # tester tests -s
 ```
 
 ## Tests
 
-This repository does not currently define a test script in `composer.json` (although a `tests/` directory exists).
+The package defines `composer tester` and contains a small Nette Tester suite under `tests/`.
 Do not claim behavior is covered by tests unless you find and run a relevant suite. When adding a test suite, follow the package’s existing Nette Tester setup if one is present and add an explicit Composer script.
 
 ## Installation Hooks
