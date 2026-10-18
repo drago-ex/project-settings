@@ -58,12 +58,9 @@ abstract class BasePresenter extends Presenter
 
 ## Permission provider
 
-With [drago-ex/permission](https://github.com/drago-ex/permission) installed, generate the basic access rules
-of this package (registers the settings, administrators are allowed everything) together with those of the other installed packages:
+With [drago-ex/permission](https://github.com/drago-ex/permission), the access rules from [`permission.php`](permission.php)
+are generated into the project by:
 
 ```bash
 php vendor/bin/create-permission --packages
 ```
-
-The rules are declared in [`permission.php`](permission.php) and generated into `app/Presentation/Backend/Settings/PermissionProvider.php`.
-An existing class is kept, because it belongs to the project; the command records what it did in `.drago-project/permission.json`.
