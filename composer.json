@@ -21,20 +21,15 @@
 		"phpstan/phpstan-nette": "^2.0",
 		"drago-ex/project-tools": "^1.1"
 	},
-	"bin": [
-		"bin/create-settings-permission"
-	],
 	"extra": {
 		"drago-tools": {
 			"install": {
 				"copy": {
 					"resources/app": "app"
 				}
-			},
-			"commands": {
-				"create:settings-permission": "php vendor/bin/create-settings-permission"
 			}
 		},
+		"drago-permission": "permission.php",
 		"drago-translator": {
 			"translation": "app/Presentation/Backend/Settings/Translate"
 		}
