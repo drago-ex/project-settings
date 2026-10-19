@@ -11,7 +11,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 - **License**: MIT
 
 ## Repository Layout
-- `bin/`: command-line entry points.
+- `permission.php`: basic access rules for `drago-ex/permission`, declared in `extra.drago-permission` and generated into the project by `create-permission --packages`.
 - `migrations/`: database migrations.
 - `resources/`: application resources contributed to the consuming Drago project.
 - `tests/`: automated tests.
@@ -21,7 +21,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 ## Dependencies
 
 Composer constraints describe the package contract. Before changing integration behavior, inspect the source and the actual call sites in this package; do not infer runtime usage solely from dependency declarations.
-Development dependencies include nette/tester (^2.5), phpstan/phpstan-nette (^2.0), drago-ex/project-tools (^1.0).
+Development dependencies include nette/tester (^2.5), phpstan/phpstan-nette (^2.0), drago-ex/project-tools (^2.0).
 
 ## Essential Commands
 
