@@ -2,4 +2,4 @@
 parameters:
 	sidebar:
 		System:
-			- {title: Settings, link: 'Settings:', icon: fa-solid fa-globe bell}
+			- {title: Settings, link: 'Settings:', icon: fa-solid fa-globe bell, allowAny: [Backend:Settings, default-read]}

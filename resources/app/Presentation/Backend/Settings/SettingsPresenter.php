@@ -22,8 +22,20 @@ class SettingsPresenter extends BackendPresenter
 
 	public function renderDefault(): void
 	{
-		$this->template->inputsSettings = $this->settingsRepository
-			->getSettings();
+		$this->template->settingControls = array_map(
+			self::controlName(...),
+			array_keys($this->settingsRepository->getSettings()),
+		);
+	}
+
+
+	/**
+	 * Setting names may contain dots (e.g. blog.comments_enabled), which a form control name may not,
+	 * so other characters than letters, digits and underscores become underscores.
+	 */
+	public static function controlName(string $name): string
+	{
+		return (string) preg_replace('~\W~', '_', $name);
 	}
 
 
@@ -33,11 +45,11 @@ class SettingsPresenter extends BackendPresenter
 		$form->setTranslator($this->translator);
 		$settings = $this->settingsRepository->getSettings();
 		foreach ($settings as $name => $value) {
-			$form->addText($name, $name)
+			$form->addText(self::controlName($name), $name)
+				->setDefaultValue($value)
 				->setRequired();
 		}
 
-		$form->setDefaults($settings);
 		$form->addSubmit('save', 'Save');
 		$form->onSuccess[] = $this->processSettingsForm(...);
 		return $form;
@@ -50,8 +62,13 @@ class SettingsPresenter extends BackendPresenter
 	 */
 	private function processSettingsForm(Form $form): void
 	{
-		foreach ((array) $form->getValues('array') as $name => $value) {
-			$this->settingsRepository->saveSetting($name, (string) $value);
+		$values = (array) $form->getValues('array');
+		foreach (array_keys($this->settingsRepository->getSettings()) as $name) {
+			// A setting added after the form was shown has no field in it.
+			$control = self::controlName($name);
+			if (array_key_exists($control, $values)) {
+				$this->settingsRepository->saveSetting($name, (string) $values[$control]);
+			}
 		}
 
 		$this->flashMessage('Successful save.', Alert::Success);

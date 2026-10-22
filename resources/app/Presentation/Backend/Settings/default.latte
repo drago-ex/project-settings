@@ -6,7 +6,7 @@
 			<h5 n:block="title" class="border-bottom pb-2">{_'Website settings'}</h5>
 			{embed '../../Accessory/Widget/@form.latte', name: 'settings'}
 				{block form}
-					{foreach $inputsSettings as $name => $value}
+					{foreach $settingControls as $name}
 						{include input, name: $name, columns: 6}
 					{/foreach}
 					<div class="d-block">
