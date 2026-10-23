@@ -19,9 +19,9 @@ Use this file as package-specific guidance when working in this repository. Keep
 - `composer.json`: package metadata, dependency constraints, autoloading, and available Composer scripts.
 
 ## Key Parts
-- Table `settings` (name → value strings): `001_settings.sql`, and `002_settings_primary_key.sql` adds the primary key on `name` and converts it to utf8mb4. Other packages add their own rows in their migrations with `INSERT … WHERE NOT EXISTS` (e.g. project-blog, priority 110, after this package's default 100); the web installer writes the `installed` row, which `getSettings()` leaves out.
+- Table `settings` (name → value strings, primary key on `name`, utf8mb4): `001_settings.sql`. Other packages add their own rows in their migrations with `INSERT … WHERE NOT EXISTS` (e.g. project-blog, priority 110, after this package's default 100); the web installer writes the `installed` row, which `getSettings()` leaves out.
 - `Core\Settings\SettingsRepository::getSettings()` reads all rows; `SettingsRequire` puts them into templates as `Settings`; the administration (`Backend:Settings`) edits every row as a text field; setting names may contain dots (`blog.comments_enabled`), so the form control name is `SettingsPresenter::controlName()` (non-word characters → `_`).
-- Executed migrations must never be edited (checksums); a schema change needs a new file.
+- Migrations: see the workspace rule (one complete `CREATE TABLE` per table while no real project runs).
 
 ## Dependencies
 
