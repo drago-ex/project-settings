@@ -1,5 +1,7 @@
 # Drago Project settings
 
+English | [Čeština](readme.cs.md)
+
 Individual settings for the application.
 
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fproject-settings.svg)](https://badge.fury.io/ph/drago-ex%2Fproject-settings)
