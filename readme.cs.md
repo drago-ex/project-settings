@@ -52,10 +52,10 @@ abstract class BasePresenter extends Presenter
 ```latte
 {varType App\Core\Settings\Settings $settings}
 
-{* název webu *}
+{* website name *}
 {$settings->get('website')}
 
-{* popis webu *}
+{* website description *}
 {$settings->get('description')}
 
 {if $settings->has('website')}
