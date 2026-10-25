@@ -19,23 +19,19 @@ class SettingsPresenter extends BackendPresenter
 	#[Inject]
 	public SettingsRepository $settingsRepository;
 
+	/**
+	 * Setting names by the names of their form controls. A setting name may contain characters a control name
+	 * may not (e.g. a dot), so the controls are named by position, which never collides.
+	 * @var array<string, string>
+	 */
+	private array $settingNames = [];
+
 
 	public function renderDefault(): void
 	{
-		$this->template->settingControls = array_map(
-			self::controlName(...),
-			array_keys($this->settingsRepository->getSettings()),
-		);
-	}
-
-
-	/**
-	 * Setting names may contain dots (e.g. blog.comments_enabled), which a form control name may not,
-	 * so other characters than letters, digits and underscores become underscores.
-	 */
-	public static function controlName(string $name): string
-	{
-		return (string) preg_replace('~\W~', '_', $name);
+		// the template lists exactly the controls the form has
+		$this->getComponent('settings');
+		$this->template->settingControls = array_keys($this->settingNames);
 	}
 
 
@@ -43,11 +39,14 @@ class SettingsPresenter extends BackendPresenter
 	{
 		$form = new Form;
 		$form->setTranslator($this->translator);
-		$settings = $this->settingsRepository->getSettings();
-		foreach ($settings as $name => $value) {
-			$form->addText(self::controlName($name), $name)
+		foreach ($this->settingsRepository->getSettings() as $name => $value) {
+			$control = 'setting' . count($this->settingNames);
+			$this->settingNames[$control] = (string) $name;
+			// the column value is VARCHAR(255); a longer value would fail only in the database
+			$form->addText($control, (string) $name)
 				->setDefaultValue($value)
-				->setRequired();
+				->setRequired()
+				->addRule($form::MaxLength, 'The value can have at most %d characters.', 255);
 		}
 
 		$form->addSubmit('save', 'Save');
@@ -63,12 +62,8 @@ class SettingsPresenter extends BackendPresenter
 	private function processSettingsForm(Form $form): void
 	{
 		$values = (array) $form->getValues('array');
-		foreach (array_keys($this->settingsRepository->getSettings()) as $name) {
-			// A setting added after the form was shown has no field in it.
-			$control = self::controlName($name);
-			if (array_key_exists($control, $values)) {
-				$this->settingsRepository->saveSetting($name, (string) $values[$control]);
-			}
+		foreach ($this->settingNames as $control => $name) {
+			$this->settingsRepository->saveSetting($name, (string) $values[$control]);
 		}
 
 		$this->flashMessage('Successful save.', Alert::Success);

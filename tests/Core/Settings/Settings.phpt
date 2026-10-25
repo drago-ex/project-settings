@@ -41,9 +41,3 @@ test('Reading a missing setting throws a descriptive exception', function () {
 	);
 });
 
-
-test('Setting names become valid form control names', function () {
-	Assert::same('website', App\Presentation\Backend\Settings\SettingsPresenter::controlName('website'));
-	Assert::same('blog_comments_enabled', App\Presentation\Backend\Settings\SettingsPresenter::controlName('blog.comments_enabled'));
-	Assert::same('a_b_c', App\Presentation\Backend\Settings\SettingsPresenter::controlName('a-b c'));
-});
