@@ -26,8 +26,13 @@ as set in `extra.drago-tools` of this package's `composer.json`.
 
 ## Administration
 
-With [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui), the item "Settings" appears
-in the sidebar (`Backend/Settings/2.menu.neon`).
+The settings page is available as:
+
+```latte
+{link :Backend:Settings:}
+```
+
+With [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui), add the links to its menu (see its README); [drago-ex/project-preset](https://github.com/drago-ex/project-preset) adds them for you.
 
 ## Use in the presenter
 

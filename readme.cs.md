@@ -26,8 +26,13 @@ podle nastavení v `extra.drago-tools` v `composer.json` tohoto balíčku.
 
 ## Administrace
 
-S [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui) se v postranním menu objeví
-položka „Nastavení“ (`Backend/Settings/2.menu.neon`).
+Stránka nastavení je dostupná jako:
+
+```latte
+{link :Backend:Settings:}
+```
+
+S [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui) přidejte odkazy do jeho menu (viz jeho README); [drago-ex/project-preset](https://github.com/drago-ex/project-preset) je přidá za vás.
 
 ## Použití v presenteru
 
