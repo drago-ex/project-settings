@@ -32,7 +32,7 @@ The settings page is available as:
 {link :Backend:Settings:}
 ```
 
-With [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui), add the links to its menu (see its README); [drago-ex/project-preset](https://github.com/drago-ex/project-preset) adds them for you.
+With [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui), add the links to its menu (see its README).
 
 ## Use in the presenter
 

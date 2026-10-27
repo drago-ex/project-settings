@@ -32,7 +32,7 @@ Stránka nastavení je dostupná jako:
 {link :Backend:Settings:}
 ```
 
-S [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui) přidejte odkazy do jeho menu (viz jeho README); [drago-ex/project-preset](https://github.com/drago-ex/project-preset) je přidá za vás.
+S [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui) přidejte odkazy do jeho menu (viz jeho README).
 
 ## Použití v presenteru
 
