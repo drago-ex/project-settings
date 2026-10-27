@@ -59,11 +59,17 @@ abstract class BasePresenter extends Presenter
 {/if}
 ```
 
-## Provider oprávnění
+---
 
-S [drago-ex/permission](https://github.com/drago-ex/permission) se pravidla přístupu z [`permission.php`](permission.php)
+## Volitelné doplňky
+
+Balíček funguje i bez nich. Pokud je projekt potřebuje, nastavte je ručně podle popisu níže.
+
+### Provider oprávnění
+
+S [drago-ex/permission](https://github.com/drago-ex/permission) se pravidla přístupu z [`bin/create-settings-permission`](bin/create-settings-permission)
 vygenerují do projektu příkazem:
 
 ```bash
-php vendor/bin/create-permission --packages
+php vendor/bin/drago-commands
 ```

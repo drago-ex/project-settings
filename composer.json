@@ -28,9 +28,11 @@
 				"copy": {
 					"resources/app": "app"
 				}
-			}
+			},
+			"commands": [
+				"bin/create-settings-permission"
+			]
 		},
-		"drago-permission": "permission.php",
 		"drago-translator": {
 			"translation": "app/Presentation/Backend/Settings/Translate"
 		}

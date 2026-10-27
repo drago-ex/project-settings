@@ -59,11 +59,17 @@ abstract class BasePresenter extends Presenter
 {/if}
 ```
 
-## Permission provider
+---
 
-With [drago-ex/permission](https://github.com/drago-ex/permission), the access rules from [`permission.php`](permission.php)
+## Optional add-ons
+
+The package works without them. Set them up by hand as described below when the project needs them.
+
+### Permission provider
+
+With [drago-ex/permission](https://github.com/drago-ex/permission), the access rules from [`bin/create-settings-permission`](bin/create-settings-permission)
 are generated into the project by:
 
 ```bash
-php vendor/bin/create-permission --packages
+php vendor/bin/drago-commands
 ```
