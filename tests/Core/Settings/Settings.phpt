@@ -40,4 +40,3 @@ test('Reading a missing setting throws a descriptive exception', function () {
 		'Missing setting "missing".',
 	);
 });
-
