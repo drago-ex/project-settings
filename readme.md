@@ -9,9 +9,7 @@ Individual settings for the application.
 ## Requirements
 
 - PHP >= 8.3, < 9
-- Nette Framework
-- Composer
-- Drago Project core packages
+- [Drago Project](https://github.com/drago-ex/project)
 
 ## Installation
 
