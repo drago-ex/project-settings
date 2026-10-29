@@ -5,3 +5,7 @@
 "Successful save.": "Úspěšné uložení."
 "Save": "Uložit"
 "The value can have at most %d characters.": "Hodnota může mít nejvýše %d znaků."
+
+# setting names of the settings table (the form labels); a new setting gets its translation here
+"website": "Název webu"
+"description": "Popis webu"
