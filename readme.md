@@ -32,6 +32,10 @@ The settings page is available as:
 
 With [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui), add the links to its menu (see its README).
 
+The form has a field for every row of the `settings` table, labelled by its name (`website`, `description`). The
+labels are translated: when you add a setting to the database, add the translation of its name to
+`app/Presentation/Backend/Settings/Translate/cs.neon`, otherwise the field shows the name itself.
+
 ## Use in the presenter
 
 Add the trait to a base presenter whose templates need application settings:

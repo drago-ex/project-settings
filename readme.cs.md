@@ -32,6 +32,10 @@ Stránka nastavení je dostupná jako:
 
 S [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui) přidejte odkazy do jeho menu (viz jeho README).
 
+Formulář má pole pro každý řádek tabulky `settings`, popsané jejím názvem (`website`, `description`). Popisky
+se překládají: když do databáze přidáte nové nastavení, doplňte překlad jeho názvu do
+`app/Presentation/Backend/Settings/Translate/cs.neon`, jinak pole ukáže samotný název.
+
 ## Použití v presenteru
 
 Přidejte trait do základního presenteru, jehož šablony potřebují nastavení aplikace:
