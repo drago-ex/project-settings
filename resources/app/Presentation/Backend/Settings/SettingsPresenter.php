@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Presentation\Backend\Settings;
 
@@ -11,6 +9,7 @@ use Drago\Attr\AttributeDetectionException;
 use Exception;
 use Nette\Application\UI\Form;
 use Nette\DI\Attributes\Inject;
+use function count;
 
 
 /** @property-read SettingsTemplate $template */

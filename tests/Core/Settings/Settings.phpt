@@ -1,10 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Test: App\Core\Settings\Settings
  */
-
-declare(strict_types=1);
 
 use App\Core\Settings\Settings;
 use Tester\Assert;

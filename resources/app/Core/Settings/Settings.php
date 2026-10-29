@@ -1,16 +1,15 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Core\Settings;
 
 use RuntimeException;
+use function sprintf;
 
 
 class Settings
 {
-	/** @param array<string, string> $values */
 	public function __construct(
+		/** @var array<string, string> */
 		private readonly array $values,
 	) {
 	}
