@@ -6,11 +6,11 @@ use RuntimeException;
 use function sprintf;
 
 
-class Settings
+readonly class Settings
 {
 	public function __construct(
 		/** @var array<string, string> */
-		private readonly array $values,
+		private array $values,
 	) {
 	}
 
