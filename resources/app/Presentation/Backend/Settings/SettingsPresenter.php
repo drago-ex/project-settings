@@ -2,6 +2,7 @@
 
 namespace App\Presentation\Backend\Settings;
 
+use App\Core\Settings\SettingsEntity;
 use App\Core\Settings\SettingsRepository;
 use App\Presentation\Backend\BackendPresenter;
 use Drago\Application\UI\Alert;
@@ -41,11 +42,11 @@ class SettingsPresenter extends BackendPresenter
 		foreach ($this->settingsRepository->getSettings() as $name => $value) {
 			$control = 'setting' . count($this->settingNames);
 			$this->settingNames[$control] = (string) $name;
-			// the column value is VARCHAR(255); a longer value would fail only in the database
+			// a value longer than the column would fail only in the database
 			$form->addText($control, (string) $name)
 				->setDefaultValue($value)
 				->setRequired()
-				->addRule($form::MaxLength, 'The value can have at most %d characters.', 255);
+				->addRule($form::MaxLength, 'The value can have at most %d characters.', SettingsEntity::ColumnValueSize);
 		}
 
 		$form->addSubmit('save', 'Save');

@@ -11,6 +11,8 @@ class SettingsEntity extends Entity
 		ColumnName = 'name',
 		ColumnValue = 'value';
 
+	public const int ColumnValueSize = 255;
+
 	public string $name;
 	public string $value;
 }
