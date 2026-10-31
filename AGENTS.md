@@ -7,7 +7,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 - **Type**: drago-tools-resource
 - **Purpose**: Individual settings for the application.
 - **PHP**: >=8.3 <9
-- **Runtime dependencies**: nette/application (^3.0), nette/di (^3.0), tracy/tracy (^2.0), drago-ex/translator (^4.0.1), drago-ex/database (^4.1), drago-ex/application (^4.0), drago-ex/project-backend (^1.0), drago-ex/form (^3.0)
+- **Runtime dependencies**: nette/application (^3.0), nette/di (^3.0), tracy/tracy (^2.0), drago-ex/translator (^4.0.1), drago-ex/database (^5.0), drago-ex/application (^4.0), drago-ex/project-backend (^1.0), drago-ex/form (^3.0)
 - **License**: MIT
 
 ## Repository Layout

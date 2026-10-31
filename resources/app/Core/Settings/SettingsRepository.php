@@ -4,21 +4,18 @@ namespace App\Core\Settings;
 
 use Dibi\Connection;
 use Dibi\Exception;
-use Drago\Attr\AttributeDetectionException;
-use Drago\Attr\Table;
-use Drago\Database\Database;
+use Drago\Database\Table;
 use RuntimeException;
 
 
-#[Table(SettingsEntity::Table)]
-class SettingsRepository
+readonly class SettingsRepository
 {
-	/** @use Database<SettingsEntity> */
-	use Database;
+	public Table $table;
 
-	public function __construct(
-		private readonly Connection $connection,
-	) {
+
+	public function __construct(Connection $db)
+	{
+		$this->table = new Table($db, SettingsEntity::Table);
 	}
 
 
@@ -29,7 +26,7 @@ class SettingsRepository
 	public function getSettings(): array
 	{
 		try {
-			return $this->read('*')
+			return $this->table->read('*')
 				->where('name != ?', 'installed')
 				->fetchPairs(SettingsEntity::ColumnName, SettingsEntity::ColumnValue);
 
@@ -41,23 +38,22 @@ class SettingsRepository
 
 	/**
 	 * Saves a single setting by name.
-	 * @throws AttributeDetectionException
 	 * @throws Exception
 	 */
 	public function saveSetting(string $name, string $value): void
 	{
-		$exists = $this->find(SettingsEntity::ColumnName, $name)
+		$exists = $this->table->find(SettingsEntity::ColumnName, $name)
 			->fetch();
 
 		if ($exists === null) {
-			$this->insert([
+			$this->table->insert([
 				SettingsEntity::ColumnName => $name,
 				SettingsEntity::ColumnValue => $value,
 			])->execute();
 			return;
 		}
 
-		$this->update([
+		$this->table->update([
 			SettingsEntity::ColumnValue => $value,
 		])
 			->where('%n = ?', SettingsEntity::ColumnName, $name)

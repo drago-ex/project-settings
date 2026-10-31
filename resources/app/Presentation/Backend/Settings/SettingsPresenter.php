@@ -6,7 +6,6 @@ use App\Core\Settings\SettingsEntity;
 use App\Core\Settings\SettingsRepository;
 use App\Presentation\Backend\BackendPresenter;
 use Drago\Application\UI\Alert;
-use Drago\Attr\AttributeDetectionException;
 use Exception;
 use Nette\Application\UI\Form;
 use Nette\DI\Attributes\Inject;
@@ -55,10 +54,7 @@ class SettingsPresenter extends BackendPresenter
 	}
 
 
-	/**
-	 * @throws Exception
-	 * @throws AttributeDetectionException
-	 */
+	/** @throws Exception */
 	private function processSettingsForm(Form $form): void
 	{
 		$values = (array) $form->getValues('array');
