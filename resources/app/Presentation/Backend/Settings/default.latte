@@ -3,7 +3,10 @@
 {block content}
 	{embed ../Accessory/Widget/@content.latte}
 		{block content}
-			<h5 n:block="title" class="border-bottom pb-2">{_'Website settings'}</h5>
+			<header class="mb-4 pb-2 border-bottom">
+				<h1 n:block="title" class="h5 mb-1">{_'Website settings'}</h1>
+				<p class="small text-body-secondary mb-0">{_'Set the basic information about the website.'}</p>
+			</header>
 			{embed '../../Accessory/Widget/@form.latte', name: 'settings'}
 				{block form}
 					{foreach $settingControls as $name}
