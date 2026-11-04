@@ -11,7 +11,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 - **License**: MIT
 
 ## Repository Layout
-- `bin/create-settings-permission`: generates the basic access rules (permission providers) with `create-permission` of `drago-ex/permission`; listed in `extra.drago-tools.commands` and run by `drago-commands` of drago-ex/project-tools. Existing providers are kept; without drago-ex/permission it does nothing.
+- `resources/app/Presentation/Backend/Settings/acl.neon`: the ACL of the package (resources = presenter names, rules only for roles other than the administrator), merged by Nette with `role.acl.neon` of drago-ex/permission (required); a new presenter gets its resource in the `acl.neon` next to it. No bin script or providers.
 - `migrations/`: database migrations.
 - `resources/`: application resources contributed to the consuming Drago project.
 - `tests/`: automated tests.
@@ -19,8 +19,9 @@ Use this file as package-specific guidance when working in this repository. Keep
 - `composer.json`: package metadata, dependency constraints, autoloading, and available Composer scripts.
 
 ## Key Parts
-- Table `settings` (name → value strings, primary key on `name`, utf8mb4): `001_settings.sql`. Other packages may add their own rows in their migrations with `INSERT … WHERE NOT EXISTS` (after this package's default priority 100); the web installer writes the `installed` row, which `getSettings()` leaves out.
+- Table `settings` (name → value strings, primary key on `name`, utf8mb4): `001_settings.sql`. Other packages may add their own rows in their migrations with `INSERT … WHERE NOT EXISTS` (after this package's default priority 100).
 - `Core\Settings\SettingsRepository::getSettings()` reads all rows; `SettingsRequire` puts them into templates as `Settings`; the administration (`Backend:Settings`) edits every row as a text field of at most 255 characters (the column). A setting name may contain characters a control name may not, so the controls are named by position (`setting0`, …) and `SettingsPresenter::$settingNames` maps them back; the template lists exactly the controls of the form (2026-10-25, code review: the earlier name rewrite made `site.name` and `site_name` collide and the page fail).
+- The brand (2026-11-03, user: the settings own the website name, not project-preset): `resources/brand/@brand.latte` is installed by `replace` (`replace-once`, priority 100) over `app/Presentation/Accessory/Widget/@brand.latte`, which project-auth installs by `copy` (a copy would be skipped for an existing file). It prints `$settings->get('website')` only when `$settings` is set (a presenter with `SettingsRequire`) and has the row, else "Project", because `get()` throws for a missing setting. project-preset no longer ships a brand.
 - Migrations: see the workspace rule (one complete `CREATE TABLE` per table while no real project runs).
 
 ## Dependencies
@@ -51,3 +52,4 @@ Composer install and update hooks invoke Drago project setup/cleanup commands. I
 - Keep package-specific configuration, resources, and migrations in their established directories. Do not edit generated or consuming-project files without confirming they are part of this repository’s intended output.
 - Add or update focused tests for behavioral changes when this package has a runnable test setup. Do not invent test commands; use only the scripts and configuration present here.
 - Update README examples and Composer metadata when a public API or supported requirement changes.
+- Menu: `Backend/Settings/2.menu.neon` adds the item "Settings" to project-backend-ui (user, 2026-11-04, reverses the 2026-10-27 rule that project-preset ships the menu neons): the sidebar parameter is unused without project-backend-ui, which hides items the user may not open.

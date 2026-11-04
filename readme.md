@@ -22,6 +22,10 @@ composer require drago-ex/project-settings
 The files are copied into the project by [drago-ex/project-tools](https://github.com/drago-ex/project-tools),
 as set in `extra.drago-tools` of this package's `composer.json`.
 
+The package also replaces the brand of the layouts, `app/Presentation/Accessory/Widget/@brand.latte` of
+[drago-ex/project-auth](https://github.com/drago-ex/project-auth), with one that shows the `website` setting (the default
+name without it). It is replaced once; a later update keeps your changes.
+
 ## Administration
 
 The settings page is available as:
@@ -30,7 +34,7 @@ The settings page is available as:
 {link :Backend:Settings:}
 ```
 
-With [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui), add the links to its menu (see its README).
+With [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui), the page gets its menu item from `Backend/Settings/2.menu.neon`.
 
 The form has a field for every row of the `settings` table, labelled by its name (`website`, `description`). The
 labels are translated: when you add a setting to the database, add the translation of its name to
@@ -66,17 +70,7 @@ abstract class BasePresenter extends Presenter
 {/if}
 ```
 
----
+## Access rules
 
-## Optional add-ons
-
-The package works without them. Set them up by hand as described below when the project needs them.
-
-### Permission provider
-
-With [drago-ex/permission](https://github.com/drago-ex/permission), the access rules from [`bin/create-settings-permission`](bin/create-settings-permission)
-are generated into the project by:
-
-```bash
-php vendor/bin/drago-commands
-```
+The access rules are in `app/Presentation/Backend/Settings/acl.neon`: the resource `Backend:Settings`, for the administrator only.
+[drago-ex/permission](https://github.com/drago-ex/permission) merges them with its base roles, in which the administrator is allowed everything.

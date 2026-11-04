@@ -1,0 +1,9 @@
+{* The brand of the layouts: the name of the website from the settings; without them (a presenter without
+   SettingsRequire, or no "website" row) the default name. Installed over the default brand of project-auth. *}
+{define brand-logo}
+	<i class="fa-brands fa-medapps text-primary" aria-hidden="true"></i>
+{/define}
+
+{define brand}
+	{if isset($settings) && $settings->has('website')}{$settings->get('website')}{else}Project{/if}
+{/define}

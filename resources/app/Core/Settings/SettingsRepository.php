@@ -27,7 +27,6 @@ readonly class SettingsRepository
 	{
 		try {
 			return $this->table->read('*')
-				->where('name != ?', 'installed')
 				->fetchPairs(SettingsEntity::ColumnName, SettingsEntity::ColumnValue);
 
 		} catch (\Throwable $e) {

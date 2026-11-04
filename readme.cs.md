@@ -22,6 +22,10 @@ composer require drago-ex/project-settings
 Soubory do projektu kopíruje [drago-ex/project-tools](https://github.com/drago-ex/project-tools)
 podle nastavení v `extra.drago-tools` v `composer.json` tohoto balíčku.
 
+Balíček také nahradí brand layoutů, `app/Presentation/Accessory/Widget/@brand.latte` z
+[drago-ex/project-auth](https://github.com/drago-ex/project-auth), verzí, která zobrazuje nastavení `website` (bez něj
+výchozí název). Nahradí ho jen jednou; pozdější aktualizace vaše úpravy zachová.
+
 ## Administrace
 
 Stránka nastavení je dostupná jako:
@@ -30,7 +34,7 @@ Stránka nastavení je dostupná jako:
 {link :Backend:Settings:}
 ```
 
-S [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui) přidejte odkazy do jeho menu (viz jeho README).
+S [drago-ex/project-backend-ui](https://github.com/drago-ex/project-backend-ui) dostane stránka položku menu z `Backend/Settings/2.menu.neon`.
 
 Formulář má pole pro každý řádek tabulky `settings`, popsané jejím názvem (`website`, `description`). Popisky
 se překládají: když do databáze přidáte nové nastavení, doplňte překlad jeho názvu do
@@ -66,17 +70,7 @@ abstract class BasePresenter extends Presenter
 {/if}
 ```
 
----
+## Pravidla přístupu
 
-## Volitelné doplňky
-
-Balíček funguje i bez nich. Pokud je projekt potřebuje, nastavte je ručně podle popisu níže.
-
-### Provider oprávnění
-
-S [drago-ex/permission](https://github.com/drago-ex/permission) se pravidla přístupu z [`bin/create-settings-permission`](bin/create-settings-permission)
-vygenerují do projektu příkazem:
-
-```bash
-php vendor/bin/drago-commands
-```
+Pravidla přístupu jsou v `app/Presentation/Backend/Settings/acl.neon`: zdroj `Backend:Settings` jen pro administrátora.
+[drago-ex/permission](https://github.com/drago-ex/permission) je sloučí se svými výchozími rolemi, ve kterých administrátor smí všechno.

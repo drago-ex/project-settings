@@ -12,10 +12,11 @@
 		"drago-ex/database": "^5.0",
 		"drago-ex/application": "^4.0",
 		"drago-ex/project-backend": "^1.0",
-		"drago-ex/form": "^3.0"
+		"drago-ex/form": "^3.0",
+		"drago-ex/permission": "^2.0"
 	},
 	"suggest": {
-		"drago-ex/permission": "Enables generation of the settings permission provider."
+		"drago-ex/project-backend-ui": "Administration layout; the settings get their menu item from Backend/Settings/2.menu.neon."
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",
@@ -27,11 +28,13 @@
 			"install": {
 				"copy": {
 					"resources/app": "app"
+				},
+				"replace-once": true,
+				"replace-priority": 100,
+				"replace": {
+					"resources/brand/@brand.latte": "app/Presentation/Accessory/Widget/@brand.latte"
 				}
-			},
-			"commands": [
-				"bin/create-settings-permission"
-			]
+			}
 		},
 		"drago-translator": {
 			"translation": "app/Presentation/Backend/Settings/Translate"
