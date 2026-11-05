@@ -68,3 +68,5 @@ abstract class BasePresenter extends Presenter
 
 The rules are in `Backend/Settings/acl.neon`: the resource `Backend:Settings`, for the administrator only.
 [Project Permission](https://github.com/drago-ex/project-permission) can give the page to other roles.
+
+The same file describes the privileges (`permissionLabels`) for the permissions page of [Project Permission](https://github.com/drago-ex/project-permission).

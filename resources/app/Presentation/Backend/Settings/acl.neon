@@ -1,4 +1,11 @@
 # The settings; administrators are allowed everything (permission).
+parameters:
+	# descriptions for the permissions page of drago-ex/project-permission
+	permissionLabels:
+		Backend:Settings:
+			settings: Saving the settings
+
+
 security:
 	resources:
 		Backend:Settings:

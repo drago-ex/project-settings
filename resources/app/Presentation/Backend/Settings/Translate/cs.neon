@@ -10,3 +10,6 @@
 # setting names of the settings table (the form labels); a new setting gets its translation here
 "website": "Název webu"
 "description": "Popis webu"
+
+# descriptions of the privileges (permissionLabels in acl.neon)
+"Saving the settings": "Uložení nastavení"
