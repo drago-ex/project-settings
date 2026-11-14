@@ -2,4 +2,4 @@
 parameters:
 	sidebar:
 		System:
-			settings: {title: Settings, link: 'Settings:', icon: fa-solid fa-globe bell}
+			settings: {title: Settings, link: 'Settings:', icon: bi bi-gear bell}
