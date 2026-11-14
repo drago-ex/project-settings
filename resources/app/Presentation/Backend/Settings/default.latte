@@ -7,16 +7,26 @@
 				<h1 n:block="title" class="h5 mb-1">{_'Website settings'}</h1>
 				<p class="small text-body-secondary mb-0">{_'Set the basic information about the website.'}</p>
 			</header>
-			{embed '../../Accessory/Widget/@form.latte', name: 'settings'}
-				{block form}
-					{foreach $settingControls as $name}
-						{include input, name: $name, columns: 6}
-					{/foreach}
-					<div class="d-block">
-						{include submit, name: 'save'}
-					</div>
-				{/block}
-			{/embed}
+
+			{* one setting in a row, its name on the left and its field on the right (under each other on a phone);
+			   the rows keep a readable width on a wide screen and the button stands at their right end *}
+			<div class="row">
+				<div class="col-xl-8">
+					{embed '../../Accessory/Widget/@form.latte', name: 'settings', defaultClass: false}
+						{block form}
+							<div n:foreach="$settingControls as $name" class="row mb-3">
+								{label $name, class => 'col-sm-4 col-form-label fw-semibold' /}
+								<div class="col-sm-8 form-error">
+									{input $name, class => 'form-control'}
+								</div>
+							</div>
+							<div class="d-flex justify-content-end">
+								{include submit, name: 'save'}
+							</div>
+						{/block}
+					{/embed}
+				</div>
+			</div>
 		{/block}
 	{/embed}
 {/block}

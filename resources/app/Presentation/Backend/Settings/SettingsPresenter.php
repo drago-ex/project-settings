@@ -15,6 +15,9 @@ use function count;
 /** @property-read SettingsTemplate $template */
 class SettingsPresenter extends BackendPresenter
 {
+	/** The settings the form shows first, in this order. */
+	private const array First = ['website', 'description'];
+
 	#[Inject]
 	public SettingsRepository $settingsRepository;
 
@@ -38,7 +41,11 @@ class SettingsPresenter extends BackendPresenter
 	{
 		$form = new Form;
 		$form->setTranslator($this->translator);
-		foreach ($this->settingsRepository->getSettings() as $name => $value) {
+		// the settings of the website come first, in their order; the others follow as the database returns them
+		$settings = $this->settingsRepository->getSettings();
+		$settings = array_replace(array_intersect_key(array_flip(self::First), $settings), $settings);
+
+		foreach ($settings as $name => $value) {
 			$control = 'setting' . count($this->settingNames);
 			$this->settingNames[$control] = (string) $name;
 			// a value longer than the column would fail only in the database

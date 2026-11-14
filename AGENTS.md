@@ -20,6 +20,9 @@ dependencies are in `composer.json`.
 - The administration edits every row as a text field of at most 255 characters. Setting names may contain
   characters a control name may not, so the controls are named by position (`setting0`, …) and
   `SettingsPresenter::$settingNames` maps them back; the template lists exactly the controls of the form.
+  The form shows the settings of `SettingsPresenter::First` (`website`, `description`) first, the others as the database returns them. A setting is
+  one row of the Bootstrap grid: its name on the left (`col-sm-4 col-form-label`), its field on the right (`col-sm-8 form-error`, where the
+  validation message goes), under each other on a phone; the rows keep `col-xl-8` of the box and the button stands at their right end.
 - The website name belongs to this package: `resources/brand/@brand.latte` is installed by `replace`
   (`replace-once`, priority 100) over `app/Presentation/Accessory/Widget/@brand.latte`, which project-auth installs
   by `copy`. It prints `$settings->get('website')` only when `$settings` is set and has the row, else "Project".
