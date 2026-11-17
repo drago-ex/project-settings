@@ -10,6 +10,7 @@ administration and available in every template.
 ## Requirements
 
 - PHP >= 8.3, < 9
+- MySQL or MariaDB
 - [Drago Project](https://github.com/drago-ex/project)
 
 ## Installation
@@ -24,9 +25,24 @@ the `website` setting.
 
 ## Database
 
-The migration creates the table `settings` (name and value). `bin/project-setup` of Drago Project runs it and asks
-for the website name and description; or run `php vendor/bin/migration db:migrate --packages` and add the rows
-yourself.
+The migration creates the table `settings` (name and value), empty:
+
+```bash
+php vendor/bin/migration db:migrate --packages
+```
+
+Then add the website name and description:
+
+```sql
+INSERT INTO settings (name, value) VALUES ('website', 'My website'), ('description', 'What the website is about');
+```
+
+> [!WARNING]
+> Without these rows the settings page of the administration shows an empty form: it edits only the settings that
+> exist and does not create them, so the name and the description cannot be set there.
+
+`bin/project-setup` of Drago Project does both steps for you: it runs the migration and, in a terminal, asks for the
+name and the description.
 
 ## Administration
 
@@ -36,7 +52,8 @@ yourself.
 
 The menu item comes from `Backend/Settings/2.menu.neon` with
 [Backend UI](https://github.com/drago-ex/project-backend-ui). The form has a field for every row of `settings`,
-labelled by its name. When you add a setting, add the translation of its name to
+labelled by its name; it does not create rows (see [Database](#database)). Add another setting as a row, e.g. by an
+`INSERT` in a migration of your project (`migrations/`), and the translation of its name to
 `Backend/Settings/Translate/cs.neon`.
 
 ## Use in Presenters and Templates
