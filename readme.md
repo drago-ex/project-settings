@@ -70,6 +70,19 @@ abstract class BasePresenter extends Presenter
 }
 ```
 
+and the property to the template class of those presenters (the trait sets it before rendering; without it PHP
+reports a dynamic property):
+
+```php
+use App\Core\Settings\Settings;
+use Drago\Application\UI\ExtraTemplate;
+
+abstract class BaseTemplate extends ExtraTemplate
+{
+	public Settings $settings;
+}
+```
+
 ```latte
 {varType App\Core\Settings\Settings $settings}
 

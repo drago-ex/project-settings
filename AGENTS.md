@@ -15,7 +15,7 @@ dependencies are in `composer.json`.
 ## How it works
 - Other packages may add their own rows in their migrations with `INSERT … WHERE NOT EXISTS` (they run after
   this package's default priority 100).
-- `SettingsRepository::getSettings()` reads all rows; `SettingsRequire` puts them into templates as `Settings`;
+- `SettingsRepository::getSettings()` reads all rows; `SettingsRequire` puts them into templates as `Settings` (the template class needs `public Settings $settings`, else PHP reports a dynamic property; README shows both steps, project-front-ui ships both);
   `get()` throws for a missing setting, `has()` checks it.
 - The administration edits every row as a text field of at most 255 characters. Setting names may contain
   characters a control name may not, so the controls are named by position (`setting0`, …) and
